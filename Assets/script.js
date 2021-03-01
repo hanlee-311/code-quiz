@@ -1,5 +1,8 @@
 var quizButton = document.querySelector('#start');
+var submitBtn = document.querySelector(".submit-btn");
+var resetBtn = document.querySelector(".restart-btn");
 var endScreen = document.querySelector('.end-screen'); 
+var highScoreScreen = document.querySelector('.restart-screen');
 var displayedQuestion = document.querySelector('.quiz-container');
 var hideStartScreen = document.querySelector('#start-up-screen');
 var questionElement = document.querySelector('.quiz-question');
@@ -74,11 +77,37 @@ function resetState () {
     }
 }
 
+//Button Navigation functions
+
 //Populates page with end screen
 function endQuiz () {
     endScreen.classList.remove('hide');
     displayedQuestion.classList.add('hide');
 }
+
+//Populates page with highscore screen
+function restartScreen () {
+    highScoreScreen.classList.remove('hide');
+    endScreen.classList.add('hide');
+
+}
+
+//Populates page with start screen
+function startScreen () {
+    hideStartScreen.classList.remove('hide');
+    highScoreScreen.classList.add('hide');
+}
+
+//Button actions
+
+//Start the quiz by pressing the start button
+quizButton.addEventListener("click",  startQuiz);
+
+//Submit Initials
+submitBtn.addEventListener('click', restartScreen);
+
+//Restart 
+resetBtn.addEventListener('click', startScreen);
 
 //Timer
 function setTime() {
@@ -93,9 +122,6 @@ function setTime() {
         }
     }, 1000);
 }
-
-//Start the quiz by pressing the start button
-quizButton.addEventListener("click",  startQuiz)
 
 var quizQuestions = [
     {question: "A very useful tool to help with debugging and printing content to the debugger is the:",
