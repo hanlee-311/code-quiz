@@ -1,9 +1,47 @@
-.hide {
-    display: none;
+:root {
+    --button: purple;
+    --button-hover: rgb(223, 130, 223);
+    --div-color: rgba(253, 130, 253, 0.699);
+}
+
+/*Header Styling*/
+header {
+    background-color: var(--div-color);
+}
+
+header h1 {
+    color: var(--button);
+    font-family: 'Cormorant Infant', serif;
 }
 
 .high-score:hover {
     text-decoration: underline;
-    color: purple;
+    color: var(--button);
     cursor: pointer;
+}
+
+.time {
+    font-family: 'Cormorant Infant', serif;
+}
+
+/*Toggle display through javascript*/
+.hide {
+    display: none;
+}
+
+h2 {
+    font-family: 'New Rocker', cursive;
+}
+
+p, h3{
+    font-family: 'Cormorant Infant', serif;
+}
+
+.btn-dark {
+    background-color: var(--button);
+}
+
+.btn-dark:hover {
+    background-color: var(--button-hover);
+    border-color: var(--button-hover);
 }

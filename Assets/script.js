@@ -39,7 +39,7 @@ function generateQuestion (question) {
     question.choices.forEach(answer => {
         const button = document.createElement('button'); 
         button.innerText = answer.text;
-        button.classList.add('btn');
+        button.classList.add('btn-dark', 'btn');
         if (answer.correct) {
             button.dataset.correct = answer.correct
         };
@@ -147,33 +147,33 @@ function setTime() {
 var quizQuestions = [
     {question: "A very useful tool to help with debugging and printing content to the debugger is the:",
     choices: [
-        {text: "Console Log", correct: true}, 
-        {text: "Terminal", correct: false}, 
-        {text: "Ice Cream", correct: false}, 
-        {text: "Javascript", correct: false}
+        {text: "1. Console Log", correct: true}, 
+        {text: "2. Terminal", correct: false}, 
+        {text: "3. Ice Cream", correct: false}, 
+        {text: "4. Javascript", correct: false}
     ]},
 
     {question: "Commonly used data types DO NOT include:",
     choices: [
-        {text: "Boolean", correct: true}, 
-        {text: "Strings", correct: false}, 
-        {text: "Alerts", correct: false}, 
-        {text: "Numbers", correct: false}
+        {text: "1. Boolean", correct: true}, 
+        {text: "2. Strings", correct: false}, 
+        {text: "3. Alerts", correct: false}, 
+        {text: "4. Numbers", correct: false}
     ]},
 
     {question: "blah:",
     choices: [
-        {text: "Boolean", correct: true}, 
-        {text: "Strings", correct: false}, 
-        {text: "Alerts", correct: false}, 
-        {text: "Numbers", correct: false}
+        {text: "1. Boolean", correct: true}, 
+        {text: "2. Strings", correct: false}, 
+        {text: "3. Alerts", correct: false}, 
+        {text: "4. Numbers", correct: false}
     ]},
 
     {question: "blag:",
     choices: [
-        {text: "Boolean", correct: true}, 
-        {text: "Strings", correct: false}, 
-        {text: "Alerts", correct: false}, 
-        {text: "Numbers", correct: false}
+        {text: "1. Boolean", correct: true}, 
+        {text: "2. Strings", correct: false}, 
+        {text: "3. Alerts", correct: false}, 
+        {text: "4. Numbers", correct: false}
     ]}
 ];

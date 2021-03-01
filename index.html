@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="Assets/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
     <title>Coding Quiz App</title>
 </head>
 <body>
@@ -17,17 +19,17 @@
 
   <main>
     <div id="start-up-screen">
-      <h1>Coding Quiz Challenge!</h1>
+      <h2>Coding Quiz Challenge!</h2>
 
       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium quam, rerum laborum dolores numquam exercitationem odio repellat dolorum. Atque eligendi fugit accusantium magni? Sit quidem nihil veniam sapiente, placeat error veritatis natus modi culpa vero explicabo, dolores exercitationem perspiciatis praesentium velit itaque reiciendis consectetur animi. Deserunt debitis necessitatibus impedit suscipit.</p>
 
-      <button id="start">Start!</button>
+      <button type="button" class="btn btn-dark" id="start">Start!</button>
 
     </div>
 
     <div class="quiz-container hide">
 
-      <h2 class="quiz-question"></h2>
+      <h3 class="quiz-question"></h3>
 
       <div class="answer-button"></div>
 
@@ -39,19 +41,19 @@
       <div class="input-group mb-3">
         <span class="input-group-text" id="inputGroup-sizing-default">Enter Initials</span>
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        <button class= "submit-btn">Submit</button>
+        <button class= "submit-btn btn btn-dark">Submit</button>
       </div>
 
     </div>
 
     <div class="restart-screen hide">
-      <button class="restart-btn">Restart</button>
+      <button class="restart-btn btn btn-dark">Restart</button>
     </div>
 
     <div class="high-score-container hide">
-      <button class = "return-btn">Return</button>
+      <button class = "return-btn btn btn-dark">Return</button>
 
-      <button class= "clear-high-score">Clear Highscores</button>
+      <button class= "clear-high-score btn btn-dark">Clear Highscores</button>
     </div>
 
   </main>
