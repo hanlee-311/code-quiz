@@ -2,6 +2,7 @@ var quizButton = document.querySelector('#start');
 var submitBtn = document.querySelector(".submit-btn");
 var resetBtn = document.querySelector(".restart-btn");
 var endScreen = document.querySelector('.end-screen'); 
+var viewHighScores = document.querySelector('.high-score');
 var highScoreScreen = document.querySelector('.restart-screen');
 var displayedQuestion = document.querySelector('.quiz-container');
 var hideStartScreen = document.querySelector('#start-up-screen');
@@ -100,6 +101,14 @@ function startScreen () {
     secondsLeft = 50;
 }
 
+//Populates page with highscores
+function allHighScores () {
+    hideStartScreen.classList.add('hide');
+    highScoreScreen.classList.add('hide');
+    endScreen.classList.add('hide');
+    displayedQuestion.classList.add('hide');
+}
+
 //Button actions
 
 //Start the quiz by pressing the start button
@@ -110,6 +119,9 @@ submitBtn.addEventListener('click', restartScreen);
 
 //Restart 
 resetBtn.addEventListener('click', startScreen);
+
+//Highscore
+viewHighScores.addEventListener('click',allHighScores);
 
 //Timer
 function setTime() {
