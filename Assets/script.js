@@ -5,7 +5,7 @@ var questionElement = document.querySelector('.quiz-question');
 var answerElement = document.querySelector('.answer-button');
 var highScore = [];
 var quizQuestions = [{question: "A very useful tool to help with debugging and printing content to the debugger is the: ",
-choices: ["Console Log", "Terminal", "Ice Cream", "Javascript"], 
+choices: [{text: "Console Log"}, {text: "Terminal"}, {text: "Ice Cream"}, {text: "Javascript"}], 
 correct: "Console Log"
 }];
 let shuffleQuestions, currentQuestionIndex;
@@ -28,6 +28,15 @@ function nextQuestion() {
 function generateQuestion (question) {
     console.log("Generating Question");
     questionElement.innerHTML = question.question;
+    question.choices.forEach(answer => {
+        const button = document.createElement('button'); 
+        button.innerText = answer.text;
+    //     button.classList.add('btn');
+    //     if (answer.correct) {
+    //         button.dataset.correct = answer.correct
+    //     };
+    answerElement.appendChild(button);
+    })
 }
 
 //Start the quiz by pressing the button
