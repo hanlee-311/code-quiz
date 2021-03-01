@@ -1,8 +1,10 @@
 var quizButton = document.querySelector('#start');
 var submitBtn = document.querySelector(".submit-btn");
 var resetBtn = document.querySelector(".restart-btn");
+var returnBtn = document.querySelector(".return-btn");
 var endScreen = document.querySelector('.end-screen'); 
 var viewHighScores = document.querySelector('.high-score');
+var highScoreContainer = document.querySelector('.high-score-container');
 var highScoreScreen = document.querySelector('.restart-screen');
 var displayedQuestion = document.querySelector('.quiz-container');
 var hideStartScreen = document.querySelector('#start-up-screen');
@@ -97,6 +99,7 @@ function restartScreen () {
 function startScreen () {
     hideStartScreen.classList.remove('hide');
     highScoreScreen.classList.add('hide');
+    highScoreContainer.classList.add('hide');
     timeEl.textContent = "Time: 50";
     secondsLeft = 50;
 }
@@ -106,6 +109,7 @@ function allHighScores () {
     hideStartScreen.classList.add('hide');
     highScoreScreen.classList.add('hide');
     endScreen.classList.add('hide');
+    highScoreContainer.classList.remove('hide');
     displayedQuestion.classList.add('hide');
 }
 
@@ -114,14 +118,17 @@ function allHighScores () {
 //Start the quiz by pressing the start button
 quizButton.addEventListener("click",  startQuiz);
 
-//Submit Initials
+//Submit Initials button
 submitBtn.addEventListener('click', restartScreen);
 
-//Restart 
+//Restart button
 resetBtn.addEventListener('click', startScreen);
 
-//Highscore
-viewHighScores.addEventListener('click',allHighScores);
+//Highscore link
+viewHighScores.addEventListener('click', allHighScores);
+
+//Return button
+returnBtn.addEventListener('click', startScreen);
 
 //Timer
 function setTime() {
