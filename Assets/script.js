@@ -1,14 +1,18 @@
 var quizButton = document.querySelector('#start');
+var endScreen = document.querySelector('.end-screen'); 
 var displayedQuestion = document.querySelector('.quiz-container');
 var hideStartScreen = document.querySelector('#start-up-screen');
 var questionElement = document.querySelector('.quiz-question');
 var answerElement = document.querySelector('.answer-button');
+var timeEl = document.querySelector(".time");
+var secondsLeft = 50;
 var highScore = [];
 let shuffleQuestions, currentQuestionIndex;
 
 //Populating the page with the quiz after starting and randomizes the order
 function startQuiz() {
     console.log("Quiz Started!");
+    setTime();
     hideStartScreen.classList.add('hide');
     displayedQuestion.classList.remove('hide');
     shuffleQuestions = quizQuestions.sort(() => Math.random () - .5);
@@ -26,6 +30,7 @@ function nextQuestion() {
 //Takes a question from the question array and corresponding answers
 function generateQuestion (question) {
     console.log("Generating Question");
+    console.log(currentQuestionIndex);
     questionElement.innerHTML = question.question;
     question.choices.forEach(answer => {
         const button = document.createElement('button'); 
@@ -46,15 +51,36 @@ function selectAnswer (e) {
     Array.from(answerElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correctAnswer);
     })
+    if (shuffleQuestions.length > currentQuestionIndex + 1) {
+        nextQuestion();
+    } else {
+        endScreen.classList.add('hide');
+    }
 }
 
 function setStatusClass (element, correct) {
     if (correct) {
         element.classList.add('correct');
         console.log('correct!');
+        currentQuestionIndex++;
+        console.log(currentQuestionIndex);
     } 
 }
 
+//Timer
+function setTime() {
+    timeEl.classList.remove('hide');
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        timeEl.textContent = secondsLeft + " seconds left.";
+        // generateRandomWord();
+
+        if(secondsLeft ===0) {
+            clearInterval(timerInterval);
+            sendmessage();
+        }
+    }, 1000);
+}
 
 
 //Start the quiz by pressing the start button
