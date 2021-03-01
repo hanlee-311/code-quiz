@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="Assets/style.css">
     <title>Coding Quiz App</title>
 </head>
 <body>
 
-  <header class="time hide">
-    <span>Time: 50</span>
+  <header>
+    <h1 class="high-score">View Highscores</h1>
+    <span class="time">Time: 50</span>
   </header>
 
   <main>
@@ -33,6 +35,13 @@
 
     <div class="end-screen hide">
       <p>Good job!</p>
+      
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Enter Initials</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <button>Submit</button>
+      </div>
+
     </div>
 
   </main>

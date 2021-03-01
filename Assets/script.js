@@ -5,13 +5,12 @@ var hideStartScreen = document.querySelector('#start-up-screen');
 var questionElement = document.querySelector('.quiz-question');
 var answerElement = document.querySelector('.answer-button');
 var timeEl = document.querySelector(".time");
-var secondsLeft = 50;
+var secondsLeft = 5;
 var highScore = [];
 let shuffleQuestions, currentQuestionIndex;
 
 //Populating the page with the quiz after starting and randomizes the order
 function startQuiz() {
-    console.log("Quiz Started!");
     setTime();
     hideStartScreen.classList.add('hide');
     displayedQuestion.classList.remove('hide');
@@ -23,15 +22,13 @@ function startQuiz() {
 //Set the next question
 function nextQuestion() {
     resetState();
-    console.log("Next Question");
     generateQuestion (shuffleQuestions[currentQuestionIndex]);
     
 };
 
 //Takes a question from the question array and corresponding answers
 function generateQuestion (question) {
-    console.log("Generating Question");
-    console.log(currentQuestionIndex);
+    console.log(currentQuestionIndex + " current question index");
     questionElement.innerHTML = question.question;
     question.choices.forEach(answer => {
         const button = document.createElement('button'); 
@@ -64,13 +61,13 @@ function setStatusClass (element, correct) {
         element.classList.add('correct');
         console.log('correct!');
         currentQuestionIndex++;
-        console.log(currentQuestionIndex);
         nextQuestion();
     } else {
         console.log('wrong!');
     }
 }
 
+//Removes the previous question's buttons
 function resetState () {
     while (answerElement.firstChild) {
         answerElement.removeChild(answerElement.firstChild);
@@ -92,11 +89,10 @@ function setTime() {
 
         if(secondsLeft ===0) {
             clearInterval(timerInterval);
-            sendmessage();
+            endQuiz();
         }
     }, 1000);
 }
-
 
 //Start the quiz by pressing the start button
 quizButton.addEventListener("click",  startQuiz)
@@ -111,6 +107,22 @@ var quizQuestions = [
     ]},
 
     {question: "Commonly used data types DO NOT include:",
+    choices: [
+        {text: "Boolean", correct: true}, 
+        {text: "Strings", correct: false}, 
+        {text: "Alerts", correct: false}, 
+        {text: "Numbers", correct: false}
+    ]},
+
+    {question: "blah:",
+    choices: [
+        {text: "Boolean", correct: true}, 
+        {text: "Strings", correct: false}, 
+        {text: "Alerts", correct: false}, 
+        {text: "Numbers", correct: false}
+    ]},
+
+    {question: "blag:",
     choices: [
         {text: "Boolean", correct: true}, 
         {text: "Strings", correct: false}, 
