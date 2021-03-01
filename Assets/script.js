@@ -96,6 +96,8 @@ function restartScreen () {
 function startScreen () {
     hideStartScreen.classList.remove('hide');
     highScoreScreen.classList.add('hide');
+    timeEl.textContent = "Time: 50";
+    secondsLeft = 50;
 }
 
 //Button actions
