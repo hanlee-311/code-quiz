@@ -22,6 +22,7 @@ function startQuiz() {
 
 //Set the next question
 function nextQuestion() {
+    resetState();
     console.log("Next Question");
     generateQuestion (shuffleQuestions[currentQuestionIndex]);
     
@@ -51,10 +52,10 @@ function selectAnswer (e) {
     Array.from(answerElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correctAnswer);
     })
-    if (shuffleQuestions.length > currentQuestionIndex + 1) {
+    if (shuffleQuestions.length > currentQuestionIndex) {
         nextQuestion();
     } else {
-        endScreen.classList.add('hide');
+        endQuiz();
     }
 }
 
@@ -64,7 +65,22 @@ function setStatusClass (element, correct) {
         console.log('correct!');
         currentQuestionIndex++;
         console.log(currentQuestionIndex);
-    } 
+        nextQuestion();
+    } else {
+        console.log('wrong!');
+    }
+}
+
+function resetState () {
+    while (answerElement.firstChild) {
+        answerElement.removeChild(answerElement.firstChild);
+    }
+}
+
+//Populates page with end screen
+function endQuiz () {
+    endScreen.classList.remove('hide');
+    displayedQuestion.classList.add('hide');
 }
 
 //Timer
@@ -72,8 +88,7 @@ function setTime() {
     timeEl.classList.remove('hide');
     var timerInterval = setInterval(function () {
         secondsLeft--;
-        timeEl.textContent = secondsLeft + " seconds left.";
-        // generateRandomWord();
+        timeEl.textContent = "Time: " + secondsLeft;
 
         if(secondsLeft ===0) {
             clearInterval(timerInterval);
