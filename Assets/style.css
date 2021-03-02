@@ -1,17 +1,22 @@
 :root {
     --button: purple;
     --button-hover: rgb(223, 130, 223);
-    --div-color: rgba(253, 130, 253, 0.699);
+    --div-color: rgba(187, 75, 187, 0.699);
 }
 
 /*Header Styling*/
 header {
     background-color: var(--div-color);
+    margin-bottom: 10em;
+    display: grid;
+    grid-template-columns: 3fr;
+    padding: .5em;
 }
 
 header h1 {
     color: var(--button);
     font-family: 'Cormorant Infant', serif;
+    font-size: 20px;
 }
 
 .high-score:hover {
@@ -22,6 +27,21 @@ header h1 {
 
 .time {
     font-family: 'Cormorant Infant', serif;
+    grid-column: 3;
+    align-self: center;
+}
+
+
+/*Main Styling*/
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+div {
+    grid-column: 2/3;
+    justify-content: center;
+    align-self: center;
 }
 
 /*Toggle display through javascript*/
@@ -37,9 +57,20 @@ p, h3{
     font-family: 'Cormorant Infant', serif;
 }
 
+h3 {
+    margin-bottom: .5em;
+}
+
 .btn-dark {
     background-color: var(--button);
 }
+
+.btn-padding {
+    display: flex;
+    flex-direction: column;
+    margin-top: .5em;
+}
+
 
 .btn-dark:hover {
     background-color: var(--button-hover);

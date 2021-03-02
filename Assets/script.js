@@ -43,7 +43,7 @@ function generateQuestion (question) {
     question.choices.forEach(answer => {
         const button = document.createElement('button'); 
         button.innerText = answer.text;
-        button.classList.add('btn-dark', 'btn');
+        button.classList.add('btn-dark', 'btn', 'btn-padding');
         // if (answer.correct) {
             button.dataset.correct = answer.correct
         // };
@@ -75,7 +75,7 @@ function guessAnswer (e) {
 function checkIfCorrect (correct) {
     if (correct == 'true') {
         // add to the score
-        score++;
+        score = score + secondsLeft - 5;
         console.log('correct!');
     } else {
         console.log('wrong!');
@@ -136,7 +136,6 @@ var highScore = [{
 var userInitials = 
 
 function storeHighScores () {
-    
     localStorage.setItem("highscore", JSON.stringify(highScore));
     console.log("Stored " + score);
 };
