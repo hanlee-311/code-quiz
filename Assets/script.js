@@ -99,6 +99,7 @@ function endQuiz () {
     endScreen.classList.remove('hide');
     displayedQuestion.classList.add('hide');
     stopTimer();
+    document.getElementById("final-score").innerHTML = "Your final score is " + score + ".";
 }
 
 //Populates page with highscore screen
@@ -106,7 +107,7 @@ function restartScreen (event) {
     event.preventDefault();
     highScoreScreen.classList.remove('hide');
     endScreen.classList.add('hide');
-    storeHighScores();
+    // storeHighScores();
 }
 
 //Populates page with start screen
