@@ -76,11 +76,13 @@ function checkIfCorrect (correct) {
     if (correct == 'true') {
         // add to the score
         score = score + secondsLeft - 5;
+        userRight();
         console.log('correct!');
     } else {
         console.log('wrong!');
         //Subtract Time
         secondsLeft = secondsLeft - 10;
+        userWrong();
     }
     currentQuestionIndex++;
 }
@@ -91,6 +93,16 @@ function resetState () {
         answerElement.removeChild(answerElement.firstChild);
     }
 }
+
+//Informs the user if the answer was right
+function userRight () {
+    document.getElementById("right-or-wrong").innerHTML = "Correct!"
+};
+
+//Informs the user if the answer was wrong
+function userWrong () {
+    document.getElementById("right-or-wrong").innerHTML = "Wrong!"
+};
 
 //Button Navigation functions
 
