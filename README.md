@@ -1,89 +1,33 @@
-# 04 Web APIs: Code Quiz
+# 04 Coding Quiz Application
 
-## Your Task
+Want to challenge your Javascript knowledge and see how you compare to your fellow classmates? Try your hand at this coding quiz application!  
 
-At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
+#### Deployed Link: https://hanlee-311.github.io/code-quiz/
 
-To help familiarize you with these tests and allow you to use the skills covered in this unit, this week’s homework invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
+![The Coding Quiz Application](./Assets/coding-quiz-page.png)
 
-This week’s coursework will equip you with all the skills you need to succeed in this assignment.
+## Description
+Ten questions are presented to you to challenge your Javascript know-how, and you will have 75 seconds to answer them all. Get a question right, and your score will increase! The quicker you answer, the higher your score will be. Get a question wrong, however, and the timer will lose time, and you will not earn more points. 
 
-## User Story
+![Example Question](./Assets/quiz-question.png)
 
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+When you click on the answer you think is correct, the application will let you know if you got it right or wrong, before moving onto the next question. 
 
-## Acceptance Criteria
+![Question is correct example](./Assets/correct-answer.png)
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
-```
+Once you have completed the quiz, you will be able to save your initials and high scores for all to see! (But don't worry, if you find yourself embarrased by your score, you can always erase the highscore history!)
 
-## Mock-Up
+![Submitting initials and high score](./Assets/your-score.png)
 
-The following animation demonstrates the application functionality:
+## Functions of Code Quiz
+- User will be presented with ten questions to answer in 75 seconds. 
+- If the user completes the quiz in time or the timer runs out, the quiz ends. 
+- If the user gets a question correct, their score goes up and the quiz will let them know they got it right.
+- If the user gets a question wrong, the timer will lose time and the quiz will let them know they got it wrong. 
+- When the quiz ends, the user will be able to see their score and enter their initials. 
+- When they enter their initials and click submit, their high score will be saved and presented on the View Highscore page. 
+- The user can erase the highscore history.
 
-![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/04-web-apis-homework-demo.gif)
 
-## Grading Requirements
 
-This homework is graded based on the following criteria: 
 
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the homework instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
