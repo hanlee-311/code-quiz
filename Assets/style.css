@@ -63,6 +63,12 @@ main {
     grid-row: 3;
 }
 
+#right-or-wrong {
+    font-style: italic;
+    margin-top: 1em;
+    text-decoration: wavy overline;
+}
+
 /*Toggle display through javascript*/
 .hide {
     display: none;
