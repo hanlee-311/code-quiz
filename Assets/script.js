@@ -62,11 +62,9 @@ function guessAnswer (e) {
     // check if its correct
     checkIfCorrect(correctAnswer);
     if (currentQuestionIndex < 10) {
-        setTimeout(function () {
-        nextQuestion();}, 1000);
+        nextQuestion();
     } else {
-        setTimeout(function () {
-        endQuiz();}, 1000);
+        endQuiz();
     }
    
 }
