@@ -97,12 +97,20 @@ function resetState () {
 
 //Informs the user if the answer was right
 function userRight () {
-    document.getElementById("right-or-wrong").innerHTML = "Correct!"
+    document.getElementById("right-or-wrong").classList.remove("hide");
+    document.getElementById("right-or-wrong").innerHTML = "Correct!";
+    setTimeout(function() {
+        document.getElementById("right-or-wrong").classList.add("hide");
+    }, 1000);
 };
 
 //Informs the user if the answer was wrong
 function userWrong () {
-    document.getElementById("right-or-wrong").innerHTML = "Wrong!"
+    document.getElementById("right-or-wrong").classList.remove("hide");
+    document.getElementById("right-or-wrong").innerHTML = "Wrong!";
+    setTimeout(function() {
+        document.getElementById("right-or-wrong").classList.add("hide");
+    }, 1000);
 };
 
 //Button Navigation functions
