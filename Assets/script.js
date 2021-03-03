@@ -43,9 +43,7 @@ function generateQuestion (question) {
         const button = document.createElement('button'); 
         button.innerText = answer.text;
         button.classList.add('btn-dark', 'btn', 'btn-padding');
-        // if (answer.correct) {
-            button.dataset.correct = answer.correct
-        // };
+        button.dataset.correct = answer.correct
 
         button.addEventListener('click', guessAnswer);
         answerElement.appendChild(button);
