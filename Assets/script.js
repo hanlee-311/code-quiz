@@ -79,10 +79,10 @@ function checkIfCorrect (correct) {
         console.log('correct!');
     } else {
         console.log('wrong!');
-        //Subtract Time
-        secondsLeft = secondsLeft - 10;
         userWrong();
-    }
+        //Subtract Time
+        secondsLeft = secondsLeft - 10
+       }
     currentQuestionIndex++;
 }
 
@@ -151,7 +151,6 @@ function allHighScores () {
 //Generating the highscore list
 //Highscore related variables
 var highScores = [];
-
 
 // Storing highscores
 function storeHighScores () {
@@ -228,7 +227,9 @@ function setTime() {
         secondsLeft--;
         timeEl.textContent = "Time: " + secondsLeft;
 
-        if(secondsLeft ===0) {
+        if(secondsLeft === 0 || secondsLeft < 0) {
+            timeEl.textContent = "Time: 0";
+            secondsLeft = 75;
             stopTimer();
             endQuiz();
         } 
@@ -238,7 +239,6 @@ function setTime() {
 function stopTimer () {
     clearInterval(timeVariable);
 }
-
 
 var quizQuestions = [
     {question: "A very useful tool to help with debugging and printing content to the debugger is the:",
