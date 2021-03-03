@@ -15,7 +15,7 @@ var questionElement = document.querySelector('.quiz-question');
 var answerElement = document.querySelector('.answer-button');
 var timeEl = document.querySelector(".time");
 var timeVariable;
-var secondsLeft = 50;
+var secondsLeft = 75;
 var score = 0;
 let shuffleQuestions, currentQuestionIndex;
 
@@ -33,7 +33,6 @@ function startQuiz() {
 function nextQuestion() {
     resetState();
     generateQuestion (shuffleQuestions[currentQuestionIndex]);
-    
 };
 
 //Takes a question from the question array and corresponding answers
@@ -65,9 +64,11 @@ function guessAnswer (e) {
     // check if its correct
     checkIfCorrect(correctAnswer);
     if (currentQuestionIndex < 10) {
-        nextQuestion();
+        setTimeout(function () {
+        nextQuestion();}, 1000);
     } else {
-        endQuiz();
+        setTimeout(function () {
+        endQuiz();}, 1000);
     }
    
 }
@@ -127,8 +128,8 @@ function startScreen () {
     hideStartScreen.classList.remove('hide');
     highScoreScreen.classList.add('hide');
     highScoreContainer.classList.add('hide');
-    timeEl.textContent = "Time: 50";
-    secondsLeft = 50;
+    timeEl.textContent = "Time: 75";
+    secondsLeft = 75;
 }
 
 //Populates page with highscores
