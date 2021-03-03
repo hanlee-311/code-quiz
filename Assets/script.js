@@ -8,7 +8,7 @@ var highScoreContainer = document.querySelector('.high-score-container');
 var highScoreList = document.querySelector('.user-high-score');
 var highScoreScreen = document.querySelector('.restart-screen');
 var highScoreForm = document.querySelector('#input');
-var userInitials = document.querySelector('.user-input');
+var userInitialsInput = document.querySelector('.user-initials');
 var displayedQuestion = document.querySelector('.quiz-container');
 var hideStartScreen = document.querySelector('#start-up-screen');
 var questionElement = document.querySelector('.quiz-question');
@@ -64,7 +64,7 @@ function guessAnswer (e) {
     console.log(correctAnswer);
     // check if its correct
     checkIfCorrect(correctAnswer);
-    if (currentQuestionIndex < 4) {
+    if (currentQuestionIndex < 10) {
         nextQuestion();
     } else {
         endQuiz();
@@ -107,7 +107,7 @@ function restartScreen (event) {
     event.preventDefault();
     highScoreScreen.classList.remove('hide');
     endScreen.classList.add('hide');
-    // storeHighScores();
+    storeHighScores();
 }
 
 //Populates page with start screen
@@ -130,18 +130,60 @@ function allHighScores () {
 }
 
 //Generating the highscore list
-var highScore = [{
-    initals: userInitials,
-    score: score,
-}];
-var userInitials = 
+//Highscore related variables
+var highScores = [];
 
+
+// Storing highscores
 function storeHighScores () {
-    localStorage.setItem("highscore", JSON.stringify(highScore));
+    localStorage.setItem("highscore", JSON.stringify(highScores));
     console.log("Stored " + score);
 };
 
+//Renders the highscores as <li> elements
+function renderHighScores () {
+    highScoreList.innerHTML = "";
 
+    for (var i = 0; i < highScores.length; i++) {
+        var highScore = highScores[i];
+
+        var li = document.createElement("li");
+        li.textContent = highScore;
+        li.setAttribute("data-index", i);
+
+        highScoreList.appendChild(li);
+        console.log("new high score created!");
+    }
+};
+
+//Submit event for userInitials
+highScoreForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    var userInitialsText = userInitialsInput.value.trim();
+
+    if (userInitialsText === "") {
+        return;
+    }
+
+    highScores.push(userInitialsText);
+    userInitialsInput.value = "";
+
+    storeHighScores();
+    renderHighScores();
+    console.log("submitted initials!");
+});
+
+//Call function from the bottom of page when page loads 
+function init() {
+    var storedHighScores = JSON.parse(localStorage.getItem("highscore"));
+
+    if (storedHighScores !== null) {
+        highScores = storedHighScores;
+    }
+
+    renderHighScores();
+};
 
 //Button actions
 
@@ -176,7 +218,7 @@ function setTime() {
 
 function stopTimer () {
     clearInterval(timeVariable);
-    }
+}
 
 
 var quizQuestions = [
@@ -190,27 +232,75 @@ var quizQuestions = [
 
     {question: "Commonly used data types DO NOT include:",
     choices: [
-        {text: "1. Boolean", correct: true}, 
+        {text: "1. Boolean", correct: false}, 
         {text: "2. Strings", correct: false}, 
-        {text: "3. Alerts", correct: false}, 
+        {text: "3. Alerts", correct: true}, 
         {text: "4. Numbers", correct: false}
     ]},
 
-    {question: "blah:",
+    {question: "When you want something to be strictly true, the operator to be used is:",
     choices: [
-        {text: "1. Boolean", correct: true}, 
-        {text: "2. Strings", correct: false}, 
-        {text: "3. Alerts", correct: false}, 
-        {text: "4. Numbers", correct: false}
+        {text: "1. ==", correct: false}, 
+        {text: "2. =", correct: false}, 
+        {text: "3. !=", correct: false}, 
+        {text: "4. ===", correct: true}
     ]},
 
-    {question: "blag:",
+    {question: "Which of the following is NOT a looping structure in Javascript?",
     choices: [
-        {text: "1. Boolean", correct: true}, 
-        {text: "2. Strings", correct: false}, 
-        {text: "3. Alerts", correct: false}, 
-        {text: "4. Numbers", correct: false}
+        {text: "1. During", correct: true}, 
+        {text: "2. For", correct: false}, 
+        {text: "3. While", correct: false}, 
+        {text: "4. Do-while", correct: false}
+    ]},
+
+    {question: "What is the result of 4 + 6 + '5' based on Javascript rules?",
+    choices: [
+        {text: "1. 15", correct: false}, 
+        {text: "2. 105", correct: true}, 
+        {text: "3. 25", correct: false}, 
+        {text: "4. Undefined", correct: false}
+    ]},
+
+    {question: "The following are types of Pop up boxes in Javascript EXCEPT:",
+    choices: [
+        {text: "1. Alert", correct: false}, 
+        {text: "2. Confirm", correct: false}, 
+        {text: "3. Prompt", correct: false}, 
+        {text: "4. For", correct: true}
+    ]},
+
+    {question: "Which of the following is a string?",
+    choices: [
+        {text: "1. 20", correct: false}, 
+        {text: "2. '20'", correct: true}, 
+        {text: "3. [20, '20', Twenty]", correct: false}, 
+        {text: "4. None of these", correct: false}
+    ]},
+
+    {question: "What must you use to make an array?",
+    choices: [
+        {text: "1. [ ]", correct: true}, 
+        {text: "2. ' '", correct: false}, 
+        {text: "3. { }", correct: false}, 
+        {text: "4. ( )", correct: false}
+    ]},
+
+    {question: "If you want to make a comment in Javascript, you would use:",
+    choices: [
+        {text: "1. <!-- -->", correct: false}, 
+        {text: "2. /*", correct: false}, 
+        {text: "3. //", correct: true}, 
+        {text: "4. ''", correct: false}
+    ]},
+
+    {question: "100 is a type of:",
+    choices: [
+        {text: "1. Integer", correct: true}, 
+        {text: "2. String", correct: false}, 
+        {text: "3. Array", correct: false}, 
+        {text: "4. Century", correct: false}
     ]}
 ];
 
-// init()
+init()
