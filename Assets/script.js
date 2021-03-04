@@ -186,7 +186,7 @@ highScoreForm.addEventListener("submit", function(event) {
     // at this point we have the users initials and score
     if (userInitialsText === "") {
         return;
-    }
+    } 
 
     let entryScore = {initials: userInitialsText, score: score};
 
