@@ -2,6 +2,7 @@ var quizButton = document.querySelector('#start');
 var submitBtn = document.querySelector(".submit-btn");
 var resetBtn = document.querySelector(".restart-btn");
 var returnBtn = document.querySelector(".return-btn");
+var clearBtn = document.querySelector('.clear-high-score');
 var endScreen = document.querySelector('.end-screen'); 
 var viewHighScores = document.querySelector('.high-score');
 var highScoreList = document.querySelector('.user-high-score');
@@ -20,6 +21,7 @@ let shuffleQuestions, currentQuestionIndex;
 
 //Populating the page with the quiz after starting and randomizes the order
 function startQuiz() {
+    score = 0;
     setTime();
     hideStartScreen.classList.add('hide');
     displayedQuestion.classList.remove('hide');
@@ -196,6 +198,13 @@ highScoreForm.addEventListener("submit", function(event) {
     console.log("submitted initials!");
 })
 
+//Clear Highscores Action
+function clearHighScores () {
+    window.localStorage.removeItem('highScores');
+    highScoreList.innerHTML = "";
+};
+
+
 //Call function from the bottom of page when page loads 
 function init() {
     var storedHighScores = JSON.parse(localStorage.getItem("highscore"));
@@ -217,6 +226,9 @@ resetBtn.addEventListener('click', startScreen);
 
 //Highscore link
 viewHighScores.addEventListener('click', allHighScores);
+
+//Clear Highscore btn
+clearBtn.addEventListener('click', clearHighScores);
 
 //Timer
 function setTime() {
