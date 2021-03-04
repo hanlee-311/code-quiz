@@ -123,7 +123,6 @@ function endQuiz () {
 function restartScreen () {
     highScoreScreen.classList.remove('hide');
     endScreen.classList.add('hide');
-    // storeHighScores();
 }
 
 //Populates page with start screen
@@ -150,9 +149,9 @@ function allHighScores () {
 var highScores = [];
 
 // Storing highscores
-function storeHighScores (elephants) {
+function storeHighScores (userInformation) {
     let currentScores = JSON.parse(localStorage.getItem("highScores")) || [];
-    currentScores.push(elephants);
+    currentScores.push(userInformation);
     localStorage.setItem("highScores", JSON.stringify(currentScores));
     console.log("Stored ", currentScores);
 };
@@ -160,12 +159,18 @@ function storeHighScores (elephants) {
 //Renders the highscores as <li> elements
 function renderHighScores () {
     highScoreList.innerHTML = "";
+    highScores = JSON.parse(localStorage.getItem('highScores'));
+    console.log(highScores);
+
+    if (highScores == null) {
+        highScores = [];
+    }
 
     for (var i = 0; i < highScores.length; i++) {
         var highScore = highScores[i];
 
         var li = document.createElement("li");
-        li.textContent = highScore;
+        li.textContent = highScore.initials + " - " + highScore.score;
         li.setAttribute("data-index", i);
 
         highScoreList.appendChild(li);
@@ -186,7 +191,6 @@ highScoreForm.addEventListener("submit", function(event) {
 
     let entryScore = {initials: userInitialsText, score: score};
 
-    // highScores.push(userInitialsText);
     userInitialsInput.value = "";
 
     storeHighScores(entryScore);
@@ -210,26 +214,6 @@ function init() {
 
 //Start the quiz by pressing the start button
 quizButton.addEventListener("click", startQuiz);
-
-//Submit Initials button
-// submitBtn.addEventListener('click', function(event) {
-//     event.preventDefault();
-//     console.log(event);
-
-//     var userInitialsText = userInitialsInput.value.trim();
-
-//     if (userInitialsText === "") {
-//         return;
-//     }
-
-//     highScores.push(userInitialsText);
-//     userInitialsInput.value = "";
-
-//     storeHighScores();
-//     renderHighScores();
-//     restartScreen();
-//     console.log("submitted initials!");
-// });
 
 //Restart button
 resetBtn.addEventListener('click', startScreen);
