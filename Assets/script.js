@@ -4,7 +4,6 @@ var resetBtn = document.querySelector(".restart-btn");
 var returnBtn = document.querySelector(".return-btn");
 var endScreen = document.querySelector('.end-screen'); 
 var viewHighScores = document.querySelector('.high-score');
-var highScoreContainer = document.querySelector('.high-score-container');
 var highScoreList = document.querySelector('.user-high-score');
 var highScoreScreen = document.querySelector('.restart-screen');
 var highScoreForm = document.querySelector('#input');
@@ -129,7 +128,6 @@ function restartScreen () {
 function startScreen () {
     hideStartScreen.classList.remove('hide');
     highScoreScreen.classList.add('hide');
-    highScoreContainer.classList.add('hide');
     timeEl.textContent = "Time: 75";
     secondsLeft = 75;
 }
@@ -137,9 +135,8 @@ function startScreen () {
 //Populates page with highscores
 function allHighScores () {
     hideStartScreen.classList.add('hide');
-    highScoreScreen.classList.add('hide');
+    highScoreScreen.classList.remove('hide');
     endScreen.classList.add('hide');
-    highScoreContainer.classList.remove('hide');
     displayedQuestion.classList.add('hide');
     stopTimer();
 }
@@ -220,9 +217,6 @@ resetBtn.addEventListener('click', startScreen);
 
 //Highscore link
 viewHighScores.addEventListener('click', allHighScores);
-
-//Return button
-returnBtn.addEventListener('click', startScreen);
 
 //Timer
 function setTime() {
